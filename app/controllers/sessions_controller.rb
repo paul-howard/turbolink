@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
 
   def new
+    p "Calling 'sessions#new'"
   end
 
   def create

@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :users
 
   ## Custom Routes
-  get "login" => "sessions#new"
+  get "login" => "sessions#new", as: :login
   post "login" => "sessions#create"
 
   # The priority is based upon order of creation: first created -> highest priority.
