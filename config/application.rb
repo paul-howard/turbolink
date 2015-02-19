@@ -30,5 +30,11 @@ module Turbolink2
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+    #
+    # Configure custom 404s, etc. (http://easyactiverecord.com/blog/2014/08/19/redirecting-to-custom-404-and-500-pages-in-rails/)
+    config.exceptions_app = self.routes
   end
+
+
+
 end

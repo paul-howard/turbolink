@@ -1,7 +1,15 @@
-<h1>Login</h1>
-
-<%= bootstrap_form_for :user do |f| %>
-  <%= f.email_field :email, placeholder: 'email address, please' %>
-  <%= f.password_field :password, placeholder: 'enter your password' %>
-  <%= f.submit "login" %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h1>Login</h1>
+      <%= render 'partials/flash' %>
+      <div class="form-group">
+      <%= bootstrap_form_for :user do |f| %>
+        <%= f.email_field :email, placeholder: 'email address, please' %>
+        <%= f.password_field :password, placeholder: 'enter your password' %>
+        <%= f.submit "login" %>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</div>

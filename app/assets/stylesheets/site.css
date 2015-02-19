@@ -1,0 +1,25 @@
+/* Set all parents to full height */
+html, body, 
+.container,
+.cbp-fbscroller,
+.cbp-fbscroller section { 
+  height: 100%;
+  padding-top: 15px;
+}
+
+/* background-attachment does the trick */
+.cbp-fbscroller section {
+  position: relative;
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+#fbsection1 {
+  background-image: url(/assets/1.jpg);
+}
+
+#fbsection2 {
+  background-image: url(/assets/2.jpg);
+}

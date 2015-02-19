@@ -6,11 +6,11 @@ class User < ActiveRecord::Base
 
   validates :phone_num,
     presence: true,
-    uniqueness
+    uniqueness: true
 
   has_secure_password
 
-  validates_confirmation_of :password on: :create
+  validates_confirmation_of :password, on: :create
   validates_presence_of :password_confirmation
 
   def self.authenticate email, password
