@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150218062751) do
+ActiveRecord::Schema.define(version: 20150219230345) do
+
+  create_table "invitations", force: :cascade do |t|
+    t.string   "from_user"
+    t.string   "to_phone"
+    t.string   "as_role"
+    t.datetime "expiration"
+    t.boolean  "is_used"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
@@ -22,6 +32,15 @@ ActiveRecord::Schema.define(version: 20150218062751) do
     t.string   "password_digest"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+  end
+
+  create_table "validations", force: :cascade do |t|
+    t.string   "phone_num"
+    t.string   "code"
+    t.datetime "expiration"
+    t.boolean  "is_used"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
