@@ -1,11 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'errors/file_not_found'
-
-  get 'errors/unprocessable'
-
-  get 'errors/internal_server_error'
-
   ## Root
   root "site#index"
 
@@ -26,6 +20,10 @@ Rails.application.routes.draw do
 
   ## Backup for Custom Server Errors (http://jerodsanto.net/2014/06/a-step-by-step-guide-to-bulletproof-404s-on-rails/)
   get "*any", to: "errors#file_not_found", via: :all
+  
+  get 'errors/file_not_found'
+  get 'errors/unprocessable'
+  get 'errors/internal_server_error'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

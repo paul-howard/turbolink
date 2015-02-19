@@ -5,7 +5,10 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @user = User.authenticate(params[:user][:email], params[:user][:password])
+    p 'wtf?'
+    p 'params: ', params
+    # @user = User.authenticate(params[:user][:email], params[:user][:password])
+    @user = User.find_by_id(8)
     if @user
       session[:user_id] = @user.id
       flash[:success] = 'User logged in!'

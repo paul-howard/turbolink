@@ -5,6 +5,7 @@ html, body,
 .cbp-fbscroller section { 
   height: 100%;
   padding-top: 15px;
+  font-family: avenir, helvetica, arial, sans-serif;
 }
 
 /* background-attachment does the trick */
@@ -17,9 +18,28 @@ html, body,
 }
 
 #fbsection1 {
-  background-image: url(/assets/1.jpg);
+  background-image: url(/assets/phone.jpg);
 }
 
 #fbsection2 {
   background-image: url(/assets/2.jpg);
+}
+
+#headline {
+  position: absolute;
+  display: block;
+  top: 80%;
+  width: 70%;
+  left: 15%;
+  height: 100px;
+  margin-top: 25%;
+  color: #FFF;
+  text-shadow: 0 0 10px #000;
+  text-align: center;
+  line-height: 3.0;
+  z-index: 99;
+}
+
+#headline button {
+  margin-top: 5%;
 }

@@ -3,10 +3,23 @@
   
     <div class="col-xs-12 col-md-8 col-md-offset-2 text-center">
       <%= render 'partials/flash' %>
-      <div class="well">
-        <p class="lead">When a business card isn't enough, really *connect* with</p>
-        <h1>TurboLink</h1>
-      </div>
+      <span id="headline">
+        <% headlines = [
+                          "What business cards were to the past, <em>TurboLink</em> is to the future.",
+                          "<em>TurboLink</em>: We're putting business cards out of business.",
+                          "A business card? What is this, the 1960s?<br><br><em>TurboLink</em><br><br>Because this is not the 1960s."
+                        ]  
+        %>
+        <h1>
+          <%= headlines.sample.html_safe %>
+        </h1>
+        <span class="row">
+          <button class="button button-plain button-large button-border">Get Started</button>
+          <br><br><p>or</p>
+          <!-- <button class="button button-plain button-large button-borderless">Login</button> -->
+          <%= link_to "Login", login_path, class:'button button-plain button-med button-borderless' %>
+        </span>
+      </span>
     </div>
     
   </section>
