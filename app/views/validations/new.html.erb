@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h2>A Fresh Recruit!</h2>
+      <p>OK, but first we need the number for your mobile phone:</p>
+      <%= bootstrap_form_tag url:'/validations', method:'post' do |f|  %>
+        <%= f.telephone_field :phone_num, placeholder:"don't screw this up" %>
+        <%= f.submit 'Submit'  %>
+      <% end %>
+    </div>
+  </div>
+</div>

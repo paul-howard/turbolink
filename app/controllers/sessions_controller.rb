@@ -5,8 +5,6 @@ class SessionsController < ApplicationController
   end
 
   def create
-    p 'wtf?'
-    p 'params: ', params
     # @user = User.authenticate(params[:user][:email], params[:user][:password])
     @user = User.find_by_id(8)
     if @user

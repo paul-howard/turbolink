@@ -25,6 +25,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bcrypt', '~> 3.1.7'
 # https://github.com/bootstrap-ruby/rails-bootstrap-forms
 gem 'bootstrap_form'
+# https://github.com/laserlemon/figaro
+gem "figaro"
+#
+gem "twilio-rb"
 
 
 
