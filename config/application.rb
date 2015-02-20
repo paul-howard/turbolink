@@ -33,6 +33,9 @@ module Turbolink2
     #
     # Configure custom 404s, etc. (http://easyactiverecord.com/blog/2014/08/19/redirecting-to-custom-404-and-500-pages-in-rails/)
     config.exceptions_app = self.routes
+    #
+    # https://devcenter.heroku.com/articles/rails-4-asset-pipeline
+    config.serve_static_assets = true
   end
 
 
