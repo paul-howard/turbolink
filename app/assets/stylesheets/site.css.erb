@@ -1,3 +1,6 @@
+//= depend_on_asset "phone.jpg"
+//= depend_on_asset "2.jpg"
+
 /* Set all parents to full height */
 html, body, 
 .container,
@@ -18,11 +21,11 @@ html, body,
 }
 
 #fbsection1 {
-  background-image: url('phone.jpg');
+  background-image: url('<%= asset_path("phone.jpg") %>');
 }
 
 #fbsection2 {
-  background-image: url('2.jpg');
+  background-image: url('<%= asset_path("2.jpg") %>');
 }
 
 #headline {
