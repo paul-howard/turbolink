@@ -21,7 +21,7 @@ html, body,
 }
 
 #fbsection1 {
-  background-image: url('<%= asset_path("phone.jpg") %>');
+  background-image: url(image_path("phone.jpg"));
 }
 
 #fbsection2 {

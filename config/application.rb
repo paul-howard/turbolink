@@ -35,7 +35,7 @@ module Turbolink2
     config.exceptions_app = self.routes
     #
     # https://devcenter.heroku.com/articles/rails-4-asset-pipeline
-    config.serve_static_assets = true
+    # config.serve_static_assets = true
   end
 
 
