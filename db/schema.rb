@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150219230345) do
+ActiveRecord::Schema.define(version: 20150220202916) do
 
   create_table "invitations", force: :cascade do |t|
     t.string   "from_user"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 20150219230345) do
     t.boolean  "is_used"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "uuid"
   end
 
 end

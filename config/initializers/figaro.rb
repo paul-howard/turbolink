@@ -1,0 +1,1 @@
+Figaro.require_keys("twilio_account_sid", "twilio_auth_token")

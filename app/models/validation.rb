@@ -6,7 +6,6 @@ class Validation < ActiveRecord::Base
 
   validates :phone_num, 
     presence: true,
-    uniqueness: true,
     numericality: { only_integer: true },
     length: { is: 10 }
 

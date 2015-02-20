@@ -28,7 +28,7 @@ gem 'bootstrap_form'
 # https://github.com/laserlemon/figaro
 gem "figaro"
 # 
-gem "twilio-rb"
+gem 'twilio-ruby', '~> 3.12'
 
 
 
