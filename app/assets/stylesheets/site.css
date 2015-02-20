@@ -18,11 +18,11 @@ html, body,
 }
 
 #fbsection1 {
-  background-image: url(/assets/phone.jpg);
+  background-image: url('phone.jpg');
 }
 
 #fbsection2 {
-  background-image: url(/assets/2.jpg);
+  background-image: url('2.jpg');
 }
 
 #headline {
