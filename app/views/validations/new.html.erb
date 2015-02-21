@@ -1,12 +1,16 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-12">
-      <h2>A Fresh Recruit!</h2>
-      <p>OK, but first we need the number for your mobile phone:</p>
+    <div class="col-xs-12 col-md-8 col-md-offset-2">
+      <span>
+      <h1 class="text-center">Awesome! Let's get you set up.<br><br>First, we'll need your mobile phone number:</h1>
+      </span>
+      <span>
+      <%= render 'partials/flash' %>
       <%= bootstrap_form_tag url:'/validations', method:'post' do |f|  %>
-        <%= f.telephone_field :phone_num, placeholder:"don't screw this up" %>
-        <%= f.submit 'Submit'  %>
+        <%= f.telephone_field :phone_num, hide_label: true, placeholder:"TESTING: hardwired to test account phone.", :class => 'input-lg' %>
+        <%= f.submit 'Next >', :class => 'btn-lg btn-primary' %>
       <% end %>
+      </span>
     </div>
   </div>
 </div>

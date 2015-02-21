@@ -14,10 +14,16 @@ html, body,
 /* background-attachment does the trick */
 .cbp-fbscroller section {
   position: relative;
-  background-position: top center;
+  background-position: bottom center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-attachment: fixed;
+  -o-background-size: cover;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  /*background-attachment: fixed;*/
+
+  height: 100%;
+  width: 100%;
 }
 
 #fbsection1 {

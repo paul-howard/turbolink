@@ -35,21 +35,30 @@ class ValidationsController < ApplicationController
       )
 
     @validation = Validation.find_by_uuid(@validation.uuid)
-
     redirect_to @validation
-    # redirect_to url:'/validation/#{@validation.id}'
-    # Forward to next view
+
   end
 
-  def edit
-    # Check for expiration
-    # Set is_used = true
-    # Forward to next view
+  def show
+    @validation = Validation.find_by_id(validation_params[:id])
+    # logger.info("validation: " + @validation.inspect)    
+  end
+
+  def update
+    @validation = Validation.find_by_id(validation_params[:id])
+    if @validation.expiration < Time.now      # validation has expired
+      redirect_to root_path
+      # Check for expiration; reload w/err if exp
+    else
+      @validation.update(is_used: true)
+      redirect_to new_user_path
+    end
+    # Forward to next view (users#new)
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
     def validation_params
-      params.permit(:phone_num, :code)
+      params.permit(:id, :phone_num, :code)
     end
 
 end

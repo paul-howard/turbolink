@@ -1,11 +1,11 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-12 col-md-8 col-md-offset-2 text-center">
-      <h1>OK, we just texted you a <em>Sooper Seekrit</em> access code (shh!).<br><br>Go get it and then enter it here:</h1>
-      <form action="">
-        <input type="text">
-        <button type="submit" class="btn btn-block btn-default">Submit</button>
-      </form>
+    <div class="col-xs-12 col-md-8 col-md-offset-2">
+      <h1 class="text-center">OK, we just texted you a <em>Sooper Seekrit</em> access code (shh!).<br><br>Go get it and then enter it here:</h1>
+      <%= bootstrap_form_for(@validation) do |f| %>
+        <%= f.text_field :code, hide_label: true, :class => 'input-lg' %>
+        <%= f.submit "Next >", :class => 'btn-lg btn-primary' %>
+      <% end %>
     </div>
   </div>
 </div>
