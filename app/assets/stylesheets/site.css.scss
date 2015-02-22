@@ -7,8 +7,36 @@ html, body,
 .cbp-fbscroller,
 .cbp-fbscroller section { 
   height: 100%;
-  padding-top: 15px;
   font-family: avenir, helvetica, arial, sans-serif;
+  /* The html and body elements cannot have any padding or margin for sticky footer to work. */
+}
+
+ /* Wrapper for page content to push down footer */
+#wrap {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  /* Negative indent footer by its height */
+  margin: 0 auto -120px;
+  /* Pad bottom by footer height */
+  padding: 50px 0 120px;
+}
+
+/* Set the fixed height of the footer here */
+#footer {
+  height: 120px;
+  background-color: #dfdfdf;
+  padding-top: 20px;
+}
+
+/* Lastly, apply responsive CSS fixes as necessary */
+@media (max-width: 767px) {
+  #footer {
+    margin-left: -20px;
+    margin-right: -20px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 }
 
 /* background-attachment does the trick */

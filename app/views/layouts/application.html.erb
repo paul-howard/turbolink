@@ -11,15 +11,18 @@
   <link rel="stylesheet" media="screen" href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
   <script src="//code.jquery.com/jquery.js"></script>
   <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 </head>
 <body>
-    <!-- <%# render 'partials/login_signup_modal' %> -->
+  <!-- <%# render 'partials/login_signup_modal' %> -->
+  <div id="wrap">
     <%= render 'partials/nav_bar' %>
-
-  <%= yield %>
-
+    <%= yield %>
+  </div>
+  <%= render 'partials/test' %>
+  <% render 'partials/footer' %>
 </body>
 </html>
