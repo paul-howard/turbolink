@@ -1,5 +1,13 @@
-<h1>New User</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Back', users_path %>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-12 col-md-8 col-md-offset-2">
+      <h1 class="text-center">OK, your cell phone is registered.<br><br>Next step: password</h1>
+      <%= render 'partials/flash' %>
+      <%= bootstrap_form_for(@user) do |f| %>
+        <%= f.password_field :password, hide_label: true, :class => 'input-lg', placeholder: "Create a password" %>
+        <%= f.password_field :password_confirmation, hide_label: true, :class => 'input-lg', placeholder: "Confirm your password" %>
+        <%= f.submit "Almost Done! >", :class => "btn btn-lg btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>
