@@ -1,10 +1,10 @@
 require 'twilio-ruby'
 
 class ValidationsController < ApplicationController
-
+#
   def new
   end
-
+#
   def create
     @validation = Validation.new(validation_params)
 
@@ -38,24 +38,25 @@ class ValidationsController < ApplicationController
     redirect_to @validation
 
   end
-
+#
   def show
     @validation = Validation.find_by_id(validation_params[:id])
     # logger.info("validation: " + @validation.inspect)    
   end
-
+#
   def update
     @validation = Validation.find_by_id(validation_params[:id])
-    if @validation.expiration < Time.now      # validation has expired
-      redirect_to root_path
-      # Check for expiration; reload w/err if exp
+    if @validation.expiration < Time.now          # validation has expired
+      flash.now[:danger] = "Sorry, this code has expired."  # TODO: Change this to a modal window with option to send new text.
+      render 'show'
     else
       @validation.update(is_used: true)
-      redirect_to new_user_path
+      @user = @validation.User.create
+      redirect_to edit_user_path
     end
     # Forward to next view (users#new)
   end
-
+#
   # Never trust parameters from the scary internet, only allow the white list through.
     def validation_params
       params.permit(:id, :phone_num, :code)
