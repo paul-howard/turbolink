@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150220202916) do
+ActiveRecord::Schema.define(version: 20150222000640) do
 
   create_table "invitations", force: :cascade do |t|
     t.string   "from_user"
@@ -42,6 +42,9 @@ ActiveRecord::Schema.define(version: 20150220202916) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "uuid"
+    t.integer  "user_id"
   end
+
+  add_index "validations", ["user_id"], name: "index_validations_on_user_id"
 
 end
