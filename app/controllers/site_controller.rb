@@ -1,8 +1,11 @@
 class SiteController < ApplicationController
 
-  before_action :is_authenticated?
+  before_action :current_user
 
-  def about
+  def index
+    if current_user
+      redirect_to @current_user
+    end
   end
 
 end

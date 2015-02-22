@@ -14,7 +14,7 @@ html, body,
 /* background-attachment does the trick */
 .cbp-fbscroller section {
   position: relative;
-  background-position: bottom center;
+  background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
   -o-background-size: cover;
@@ -41,12 +41,16 @@ html, body,
   width: 70%;
   left: 15%;
   height: 100px;
-  margin-top: 15%;
+  margin-top: 8%;
   color: #FFF;
   text-shadow: 0 0 10px #000;
   text-align: center;
   line-height: 3.0;
   z-index: 99;
+}
+
+#headline h1 {
+  font-size: 5.5vw;
 }
 
 #headline button {
