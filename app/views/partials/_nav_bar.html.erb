@@ -15,12 +15,13 @@
         <ul class="nav navbar-nav navbar-right">
           
           <!-- This bit visible whether logged in or out -->
-          <li><%= link_to "About", controller: "site", action: "about" %></li>
+          <li><%= link_to "About", controller: "/site", action: "about" %></li>
 
           <!-- This bit visible only when logged out -->
           <% if !@current_user %>
             <!-- <li><a href="#" data-toggle="modal" data-target=".login-modal">Login modal</a></li> -->
-            <li><%= link_to "Login", controller: "sessions", action: "new" %></li>
+            <!-- <li><%# link_to "Login", controller: "sessions", action: "new" %></li> -->
+            <li><%= link_to "Login", new_user_session_path %></li>
 
           <!-- This bit visible only when logged in -->
           <% else %>
@@ -30,7 +31,8 @@
               </a>
               <ul class="dropdown-menu" role="menu">
                 <li><a href="#">Settings...</a></li>
-                <li><%= link_to "Log out", controller: "sessions", action: "destroy" %></li>
+                <!-- <li><%# link_to "Log out", controller: "sessions", action: "destroy" %></li> -->
+                <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
                 <!-- <li class="divider"></li> -->
                 <!-- <li><%# link_to "About TurboLink", controller: "site", action: "about" %></li> -->
               </ul>

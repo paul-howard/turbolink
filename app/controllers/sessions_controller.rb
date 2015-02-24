@@ -1,26 +1,25 @@
-class SessionsController < ApplicationController
+class SessionsController < Devise::SessionsController
+before_filter :configure_sign_in_params, only: [:create]
 
+  #GET /users/sign_in
   def new
-    p "Calling 'sessions#new'"
+    super
   end
 
+  #POST /users/sign_in
   def create
-    # @user = User.authenticate(params[:user][:email], params[:user][:password])
-    @user = User.find_by_id(8)
-    if @user
-      session[:user_id] = @user.id
-      flash[:success] = 'User logged in!'
-      redirect_to root_path
-    else
-      flash[:error] = 'Nope.'
-      render :new
-    end
+    super
   end
 
+  #DELETE /users/sign_out
   def destroy
-      reset_session
-      flash[:success] = 'User logged out.'
-      redirect_to login_path
+    super
   end
 
+  protected
+
+  # You can put the params you want to permit in the empty array.
+  def configure_sign_in_params
+    devise_parameter_sanitizer.for(:sign_in) << :attribute
+  end
 end

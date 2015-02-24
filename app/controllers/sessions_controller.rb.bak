@@ -1,0 +1,29 @@
+class SessionsController < ApplicationController
+
+  # def new
+  #   p "Calling 'sessions#new'"
+  # end
+
+  # def create
+  #   @user = User.authenticate(params[:user][:email], params[:user][:password])
+  #   # puts params 
+  #   # byebug
+  #   # @user = User.find_by_id(8)
+  #   if @user
+  #     session[:user_id] = @user.id
+  #     flash[:success] = 'User logged in!'
+  #     redirect_to @user
+  #   else
+  #     flash[:error] = 'Nope.'
+  #     render :new
+  #   end
+  # end
+
+  def destroy
+      reset_session
+      flash[:success] = 'User logged out.'
+      # redirect_to login_path
+      redirect_to new_user_session_path
+  end
+
+end

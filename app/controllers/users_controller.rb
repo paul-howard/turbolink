@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :finish_signup]
   before_action :current_user
 
   # GET /users
@@ -11,6 +11,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    # authorize! :read, @user
   end
 
   # GET /users/new
@@ -20,6 +21,7 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    # authorize! :read, @user
   end
 
   # POST /users
@@ -43,8 +45,10 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        sign_in(@user == current_user ? @user : current_user, :bypass => true)
+        format.html { redirect_to @user, notice: 'Your profile was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
+        # format.json { head :no_content }
       else
         format.html { render :edit }
         format.json { render json: @user.errors, status: :unprocessable_entity }
@@ -52,12 +56,26 @@ class UsersController < ApplicationController
     end
   end
 
+  def finish_signup
+    # authorize! :update, @user
+    if request.patch? && params[:user] #&& params[:user][:email]
+      if @user.update(user_params)
+        @user.skip_reconfirmation!
+        sign_in(@user, :bypass => true)
+        redirect_to @user, notice: 'Your profile was successfully updated.'
+      else
+        @show_errors = true
+      end
+    end
+  end
+
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
+    # authorize! :delete, @user
     @user.destroy
     respond_to do |format|
-      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
+      format.html { redirect_to root_url, notice: 'User account was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

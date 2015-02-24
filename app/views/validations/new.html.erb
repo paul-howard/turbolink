@@ -1,16 +1,18 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-12 col-md-8 col-md-offset-2">
-      <span>
-      <h1 class="text-center">Awesome! Let's get you set up.<br><br>First, we'll need your mobile phone number:</h1>
-      </span>
-      <span>
-      <%= render 'partials/flash' %>
-      <%= bootstrap_form_tag url:'/validations', method:'post' do |f|  %>
-        <%= f.telephone_field :phone_num, hide_label: true, placeholder:"TESTING: hardwired to test account phone.", :class => 'input-lg' %>
-        <%= f.submit 'Next >', :class => 'btn-lg btn-primary' %>
-      <% end %>
-      </span>
+    <div class="col-xs-12 col-sm-8 col-md-offset-2 col-md-6 col-md-offset-3">
+      <div class="page-header">
+        <h1 class="text-center">First, we'll need your mobile phone number:</h1>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <%= render 'partials/flash' %>
+          <%= bootstrap_form_tag url:'/validations', method:'post' do |f|  %>
+            <%= f.telephone_field :phone_num, hide_label: true, placeholder:"TESTING: hardwired to test account phone.", :class => 'input-lg' %>
+            <%= f.submit 'Next >', :class => 'btn-lg btn-primary' %>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
 </div>

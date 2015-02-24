@@ -1,28 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Turbolink2</title>
-  
+  <title>Turbolink</title>
+  <link rel="stylesheet" media="screen" href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-  
-  <!-- Latest compiled and minified CSS & JS -->
-  <link rel="stylesheet" media="screen" href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-  <script src="//code.jquery.com/jquery.js"></script>
-  <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-
+  <link rel="apple-touch-icon"                 href="touch-icon-iphone.png">
+  <link rel="apple-touch-icon" sizes="76x76"   href="touch-icon-ipad.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="touch-icon-iphone-retina.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="touch-icon-ipad-retina.png">
 </head>
 <body>
-  <!-- <%# render 'partials/login_signup_modal' %> -->
   <div id="wrap">
     <%= render 'partials/nav_bar' %>
     <%= yield %>
   </div>
-  <%= render 'partials/test' %>
-  <% render 'partials/footer' %>
+  <%= render 'partials/footer' %>
+  <script src="//code.jquery.com/jquery.js"></script>
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 </body>
 </html>

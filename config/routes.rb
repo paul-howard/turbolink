@@ -4,16 +4,24 @@ Rails.application.routes.draw do
   root "site#index"
 
   ## Custom Routes
-  get "login" => "sessions#new", as: :login
-  post "login" => "sessions#create"
-  get "logout" => "sessions#destroy", as: :logout
+  # post "login" => "sessions#create"
 
   get "about" => "site#about", as: :about
-  get "faq" => "site#faq", as: :faq
+  get "terms" => "site#terms", as: :terms
   get "privacy" => "site#privacy", as: :privacy
+  get "faq" => "site#faq", as: :faq
+  get "thanks" => "site#thanks", as: :thanks
 
   get "getstarted" => "validations#new", as: :get_started
   get "validate" => "validations#create", as: :validate
+
+  # Routes for Devise gem
+  devise_for :users, :controllers => { omniauth_callbacks: 'omniauth_callbacks',
+                                       sessions: 'sessions' }
+                     # :path_names  => { sign_in: 'login', sign_out: 'logout'}
+  match '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup
+  get "login" => "sessions#new", as: :login
+  get "logout" => "sessions#destroy", as: :logout
 
   ## Generated Resource Routes
   resources :users
@@ -30,7 +38,7 @@ Rails.application.routes.draw do
   get 'errors/internal_server_error'
 
   ## Backup for Custom Server Errors (http://jerodsanto.net/2014/06/a-step-by-step-guide-to-bulletproof-404s-on-rails/)
-  get "*any", to: "errors#file_not_found", via: :all
+  # get "*any", to: "errors#file_not_found", via: :all
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

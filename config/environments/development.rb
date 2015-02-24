@@ -42,4 +42,6 @@ Rails.application.configure do
   #
   ## Uncomment to test Custom Server Error pages (e.g., 404, etc.)
   # config.consider_all_requests_local = false
+
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 end
