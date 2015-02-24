@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+    <div class="page-header">
+      <h2>Hey There!</h2>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <p class="lead"><%= current_user.first_name ||= 'Someone' %> wants to share his/her contact info with you!</p>
+        <p class="lead">Just enter your mobile number and we'll sent it right over!</p>
+        <%= render 'partials/flash' %>
+        <%= bootstrap_form_for(@invitation) do |f| %>
+          <%= f.hidden_field :from_user, :value => current_user.id %>
+          <%= f.telephone_field :to_phone, hide_label: true, placeholder:"Your Cell Phone Number", :class => 'input-lg' %>
+          <%= f.submit 'Next >', :class => 'btn-lg btn-primary' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

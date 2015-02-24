@@ -8,9 +8,9 @@ class ApplicationController < ActionController::Base
   #   # redirect_to login_path unless current_user
   # end
 
-  # def current_user
-  #   @current_user ||= User.find_by_id(session[:user_id])
-  # end
+  def get_current_user
+    current_user ? @current_user = current_user : @current_user = nil
+  end
 
   def ensure_signup_complete
     # Ensure we don't go into an infinite loop
