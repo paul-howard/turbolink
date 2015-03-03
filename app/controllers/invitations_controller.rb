@@ -41,7 +41,7 @@ class InvitationsController < ApplicationController
 
 # Never trust parameters from the scary internet, only allow the white list through.
     def invitation_params
-      params.require(:invitation).permit(:id, :from_user, :to_phone)       # TODO -- Add hidden 'from_user' field and permit
+      params.require(:invitation).permit(:id, :from_user, :to_phone)
     end
 
 

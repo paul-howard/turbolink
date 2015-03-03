@@ -3,20 +3,23 @@ require 'twilio-ruby'
 class ValidationsController < ApplicationController
 #
   def new
+    @validation = Validation.new
   end
 #
-  def create
+def create
     @validation = Validation.new(validation_params)
 
     # Validate phone_num here; bounce with error if invalid or existing acct
 
     @validation.code = 'WDIROCKS'         # TODO: Replace testing code here
-    @validation.phone_num = 3105074234    #       this line can go after testing, too
+    @validation.phone_num = 3105074234 # validation_params[:phone_num] # or 3105074234
     @validation.is_used = false
     @validation.expiration = 15.minutes.from_now
     @validation.uuid = SecureRandom.uuid
+    logger.info(">>>> validation: " + @validation.inspect)  
+    logger.info(">>>> validation: " + validation_params[:phone_num])  
 
-    sid   = ENV["twilio_account_sid"] 
+    sid   = ENV["twilio_account_sid"]
     token = ENV["twilio_auth_token"]
     @client  = Twilio::REST::Client.new sid, token
     @message = @client.account.messages.create(
@@ -27,9 +30,9 @@ class ValidationsController < ApplicationController
     puts @message.to
 
     Validation.create(
-      phone_num: @validation.phone_num, 
-      code: @validation.code, 
-      is_used: @validation.is_used, 
+      phone_num: @validation.phone_num,
+      code: @validation.code,
+      is_used: @validation.is_used,
       expiration: @validation.expiration,
       uuid: @validation.uuid
       )
@@ -38,6 +41,42 @@ class ValidationsController < ApplicationController
     redirect_to @validation
 
   end
+  # def create
+  #   # @validation = Validation.new(validation_params)
+  #   @validation = Validation.new
+
+  #   # Validate phone_num here; bounce with error if invalid or existing acct
+
+  #   @validation.code = 'WDIROCKS'         # TODO: Replace testing code here
+  #   @validation.phone_num = validation_params[:phone_num]    # Hard code with 3105074234 if this doesn't work.
+  #   @validation.is_used = false
+  #   @validation.expiration = 15.minutes.from_now
+  #   @validation.uuid = SecureRandom.uuid
+
+  #   sid   = ENV["twilio_account_sid"] 
+  #   token = ENV["twilio_auth_token"]
+  #   @client  = Twilio::REST::Client.new sid, token
+  #   @message = @client.account.messages.create(
+  #     :body => "Your requested Verification Code from Turbolink: #{@validation.code}",
+  #     :to   => @validation.phone_num,
+  #     :from => "+14242874527"
+  #     )
+  #   puts @message.to
+
+  #   # @validation.save
+  #   Validation.create(
+  #     phone_num: @validation.phone_num, 
+  #     code: @validation.code, 
+  #     is_used: @validation.is_used, 
+  #     expiration: @validation.expiration,
+  #     uuid: @validation.uuid
+  #     )
+
+  #   @validation = Validation.find_by_uuid(@validation.uuid)
+  #   # redirect_to validation_path(@validation)
+  #   redirect_to @validation
+
+  # end
 #####
   def show
     @validation = Validation.find_by_id(validation_params[:id])
@@ -63,6 +102,7 @@ class ValidationsController < ApplicationController
 #####
   # Never trust parameters from the scary internet, only allow the white list through.
     def validation_params
+      # params.require(:validation).permit(:id, :phone_num, :code)
       params.permit(:id, :phone_num, :code)
     end
 

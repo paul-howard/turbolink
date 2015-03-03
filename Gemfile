@@ -36,6 +36,10 @@ gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 gem 'omniauth-github'
+##
+## New Relic
+gem 'newrelic_rpm'
+
 
 
 # Use Unicorn as the app server
